@@ -2,9 +2,9 @@ name: Hefwonen check
 
 on:
   schedule:
-    # Elke 30 min: past in de 2000 gratis Actions-minuten van een privé repo.
+    # Elke 5 min (openbare repo = onbeperkt gratis Actions-minuten).
     # GitHub start geplande runs in de praktijk vaak een paar minuten later.
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       mode:

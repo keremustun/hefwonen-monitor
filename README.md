@@ -1,7 +1,7 @@
 # Hefwonen-monitor
 
-Checkt elke ~30 minuten https://huuraanbod.hefwonen.nl/huuraanbod op nieuwe woningen.
-Het draait gratis op **GitHub Actions** in een privé repo, dus je pc hoeft niet aan.
+Checkt elke ~5 minuten https://huuraanbod.hefwonen.nl/huuraanbod op nieuwe woningen.
+Het draait gratis op **GitHub Actions** in een openbare repo (onbeperkt gratis), dus je pc hoeft niet aan.
 
 - Nieuwe woning → een melding in de **ntfy**-app (topic staat in GitHub Secret `NTFY_TOPIC`)
 - Nieuwe woning met postcode **3085** → een **dringend alarm** (ntfy-prioriteit 5)
@@ -16,8 +16,8 @@ Het draait gratis op **GitHub Actions** in een privé repo, dus je pc hoeft niet
 
 ## Dingen aanpassen
 - **Alarm-postcodes:** `POSTCODE_ALARM` in `.github/workflows/check.yml` (meerdere met komma's, bijv. `"3085,3086"`).
-- **Frequentie:** `cron` in hetzelfde bestand. Let op: een privé repo heeft 2000 gratis minuten
-  per maand en elke run telt als minimaal 1 minuut. `*/30` komt uit op ~1500 minuten per maand.
+- **Frequentie:** `cron` in hetzelfde bestand. Wordt de repo ooit privé: dan heb je 2000 gratis minuten
+  per maand en telt elke run als minimaal 1 minuut, dus zet de cron dan op `*/30`.
 - **Handmatig testen:** ga op GitHub naar Actions → "Hefwonen check" → Run workflow en kies
   `test-alarm` of `test-normal`. Of in de terminal:
   `gh workflow run check.yml -f mode=test-alarm`
