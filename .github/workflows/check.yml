@@ -3,6 +3,7 @@ name: Hefwonen check
 on:
   schedule:
     # Elke 5 min (openbare repo = onbeperkt gratis Actions-minuten).
+    # GitHub start geplande runs soms een paar minuten later dan gepland.
     # GitHub start geplande runs in de praktijk vaak een paar minuten later.
     - cron: "*/5 * * * *"
   workflow_dispatch:
