@@ -48,6 +48,10 @@
       "title": "Marlijnstraat 11",
       "firstSeen": 1794779068092
     },
+    "schuilenburg-15": {
+      "title": "Schuilenburg 15",
+      "firstSeen": 1794779068092
+    },
     "laan-op-zuid-865": {
       "title": "Laan op Zuid 865",
       "firstSeen": 1794779068092
@@ -64,6 +68,10 @@
       "title": "Maldenburg 26",
       "firstSeen": 1794784570531
     },
+    "lier-1": {
+      "title": "Lier 1",
+      "firstSeen": 1794779068092
+    },
     "tarbotstraat-56": {
       "title": "Tarbotstraat 56",
       "firstSeen": 1794779068092
@@ -76,17 +84,13 @@
       "title": "Burgemeester Brokxlaan 1746",
       "firstSeen": 1794779068092
     },
-    "schuilenburg-15": {
-      "title": "Schuilenburg 15",
-      "firstSeen": 1794779068092
-    },
-    "lier-1": {
-      "title": "Lier 1",
-      "firstSeen": 1794779068092
-    },
     "brasemstraat-54": {
       "title": "Brasemstraat 54",
       "firstSeen": 1794779068092
+    },
+    "willebrordusstraat-95-d": {
+      "title": "Willebrordusstraat 95 D",
+      "firstSeen": 1794860578240
     }
   },
   "heartbeat": "2026-11-16"
