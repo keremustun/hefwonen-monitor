@@ -1,8 +1,8 @@
 // Cloudflare Worker die elke 5 minuten de GitHub-workflow "check.yml" start.
 // GitHub's eigen cron is te onbetrouwbaar (soms uren niks); Cloudflare-cron is stipt.
-// Secret GH_TOKEN: fine-grained PAT, alleen repo hefwonen-monitor, Actions: read & write.
+// Secret GH_TOKEN: fine-grained PAT, alleen repo woning-alerts, Actions: read & write.
 const DISPATCH_URL =
-  "https://api.github.com/repos/keremustun/hefwonen-monitor/actions/workflows/check.yml/dispatches";
+  "https://api.github.com/repos/keremustun/woning-alerts/actions/workflows/check.yml/dispatches";
 
 async function dispatch(env) {
   const res = await fetch(DISPATCH_URL, {
@@ -10,7 +10,7 @@ async function dispatch(env) {
     headers: {
       Authorization: `Bearer ${env.GH_TOKEN}`,
       Accept: "application/vnd.github+json",
-      "User-Agent": "hefwonen-trigger",
+      "User-Agent": "woning-alerts-trigger",
     },
     body: JSON.stringify({ ref: "main", inputs: { mode: "run" } }),
   });
@@ -22,6 +22,6 @@ export default {
     await dispatch(env);
   },
   async fetch() {
-    return new Response("hefwonen-trigger draait");
+    return new Response("woning-alerts-trigger draait");
   },
 };
