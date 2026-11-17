@@ -25,3 +25,11 @@ Het draait gratis op **GitHub Actions** in een openbare repo (onbeperkt gratis),
 ## Lokaal
 `npm test` draait de tests op de opgeslagen pagina in `test/fixtures`.
 `NTFY_TOPIC=... node src/main.ts` doet één echte check (Node 23.6 of nieuwer).
+
+## Trigger (Cloudflare)
+De ingebouwde planning van GitHub is erg onbetrouwbaar: soms zitten er uren tussen runs. Daarom
+start een kleine Cloudflare Worker (`trigger/worker.js`) de workflow **elke 5 minuten** via de
+GitHub API. Die gebruikt het geheime `GH_TOKEN`, een fine-grained token dat alleen Actions op
+deze repo mag starten. De `schedule` in de workflow blijft staan als reserve.
+- Opnieuw deployen: `cd trigger && npx wrangler@4.162.0 deploy`
+- Token vervangen (bijv. als hij verloopt): `cd trigger && npx wrangler@4.162.0 secret put GH_TOKEN`
