@@ -40,7 +40,7 @@ export async function notifyListing(cfg: NotifyConfig, l: Listing, urgent: boole
   await publish(cfg, {
     title: urgent ? `🚨 ${pc}: ${l.title}` : `Nieuwe woning: ${l.title}`,
     message: `${describe(l)}\n${l.url}`,
-    priority: urgent ? 5 : 3,
+    priority: urgent ? 5 : 4,
     tags: urgent ? ["rotating_light", "house"] : ["house"],
     click: l.url,
   });
