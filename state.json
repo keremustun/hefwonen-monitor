@@ -1,100 +1,116 @@
 {
-  "listings": {
-    "zwaardvisstraat-22": {
-      "title": "Zwaardvisstraat 22",
-      "firstSeen": 1794779068092
+  "sources": {
+    "hefwonen": {
+      "listings": {
+        "zwaardvisstraat-22": {
+          "title": "Zwaardvisstraat 22",
+          "firstSeen": 1794779068092
+        },
+        "burgemeester-brokxlaan-1960": {
+          "title": "Burgemeester Brokxlaan 1960",
+          "firstSeen": 1794779068092
+        },
+        "dennekruid-31": {
+          "title": "Dennekruid 31",
+          "firstSeen": 1794779068092
+        },
+        "laan-op-zuid-663": {
+          "title": "Laan op Zuid 663",
+          "firstSeen": 1794779068092
+        },
+        "susannadijk-71": {
+          "title": "Susannadijk 71",
+          "firstSeen": 1794779068092
+        },
+        "briggemandreef-59": {
+          "title": "Briggemandreef 59",
+          "firstSeen": 1794779068092
+        },
+        "jan-evertsenplaats-155": {
+          "title": "Jan Evertsenplaats 155",
+          "firstSeen": 1794779068092
+        },
+        "makreelstraat-9": {
+          "title": "Makreelstraat 9",
+          "firstSeen": 1794779068092
+        },
+        "marlijnstraat-11": {
+          "title": "Marlijnstraat 11",
+          "firstSeen": 1794779068092
+        },
+        "schuilenburg-15": {
+          "title": "Schuilenburg 15",
+          "firstSeen": 1794914752522
+        },
+        "laan-op-zuid-865": {
+          "title": "Laan op Zuid 865",
+          "firstSeen": 1794779068092
+        },
+        "laan-op-zuid-873": {
+          "title": "Laan op Zuid 873",
+          "firstSeen": 1794779068092
+        },
+        "albert-rousselsingel-12": {
+          "title": "Albert Rousselsingel 12",
+          "firstSeen": 1794779068092
+        },
+        "maldenburg-26": {
+          "title": "Maldenburg 26",
+          "firstSeen": 1794784570531
+        },
+        "lier-1": {
+          "title": "Lier 1",
+          "firstSeen": 1794914752522
+        },
+        "susannadijk-107": {
+          "title": "Susannadijk 107",
+          "firstSeen": 1794779068092
+        },
+        "burgemeester-brokxlaan-1746": {
+          "title": "Burgemeester Brokxlaan 1746",
+          "firstSeen": 1794779068092
+        },
+        "brasemstraat-54": {
+          "title": "Brasemstraat 54",
+          "firstSeen": 1794914752522
+        },
+        "willebrordusstraat-95-d": {
+          "title": "Willebrordusstraat 95 D",
+          "firstSeen": 1794860578240
+        },
+        "tarbotstraat-56": {
+          "title": "Tarbotstraat 56",
+          "firstSeen": 1794779068092,
+          "goneAt": 1794931868994
+        },
+        "huigendijk-3": {
+          "title": "Huigendijk 3",
+          "firstSeen": 1794779068092,
+          "goneAt": 1794913552623
+        },
+        "burgemeester-brokxlaan-2064": {
+          "title": "Burgemeester Brokxlaan 2064",
+          "firstSeen": 1794779068092,
+          "goneAt": 1794913552623
+        },
+        "susannadijk-141": {
+          "title": "Susannadijk 141",
+          "firstSeen": 1794779068092,
+          "goneAt": 1794911790500
+        }
+      }
     },
-    "burgemeester-brokxlaan-1960": {
-      "title": "Burgemeester Brokxlaan 1960",
-      "firstSeen": 1794779068092
-    },
-    "dennekruid-31": {
-      "title": "Dennekruid 31",
-      "firstSeen": 1794779068092
-    },
-    "laan-op-zuid-663": {
-      "title": "Laan op Zuid 663",
-      "firstSeen": 1794779068092
-    },
-    "susannadijk-71": {
-      "title": "Susannadijk 71",
-      "firstSeen": 1794779068092
-    },
-    "briggemandreef-59": {
-      "title": "Briggemandreef 59",
-      "firstSeen": 1794779068092
-    },
-    "jan-evertsenplaats-155": {
-      "title": "Jan Evertsenplaats 155",
-      "firstSeen": 1794779068092
-    },
-    "makreelstraat-9": {
-      "title": "Makreelstraat 9",
-      "firstSeen": 1794779068092
-    },
-    "marlijnstraat-11": {
-      "title": "Marlijnstraat 11",
-      "firstSeen": 1794779068092
-    },
-    "schuilenburg-15": {
-      "title": "Schuilenburg 15",
-      "firstSeen": 1794914752522
-    },
-    "laan-op-zuid-865": {
-      "title": "Laan op Zuid 865",
-      "firstSeen": 1794779068092
-    },
-    "laan-op-zuid-873": {
-      "title": "Laan op Zuid 873",
-      "firstSeen": 1794779068092
-    },
-    "albert-rousselsingel-12": {
-      "title": "Albert Rousselsingel 12",
-      "firstSeen": 1794779068092
-    },
-    "maldenburg-26": {
-      "title": "Maldenburg 26",
-      "firstSeen": 1794784570531
-    },
-    "lier-1": {
-      "title": "Lier 1",
-      "firstSeen": 1794914752522
-    },
-    "susannadijk-107": {
-      "title": "Susannadijk 107",
-      "firstSeen": 1794779068092
-    },
-    "burgemeester-brokxlaan-1746": {
-      "title": "Burgemeester Brokxlaan 1746",
-      "firstSeen": 1794779068092
-    },
-    "brasemstraat-54": {
-      "title": "Brasemstraat 54",
-      "firstSeen": 1794914752522
-    },
-    "willebrordusstraat-95-d": {
-      "title": "Willebrordusstraat 95 D",
-      "firstSeen": 1794860578240
-    },
-    "tarbotstraat-56": {
-      "title": "Tarbotstraat 56",
-      "firstSeen": 1794779068092,
-      "goneAt": 1794931868994
-    },
-    "huigendijk-3": {
-      "title": "Huigendijk 3",
-      "firstSeen": 1794779068092,
-      "goneAt": 1794913552623
-    },
-    "burgemeester-brokxlaan-2064": {
-      "title": "Burgemeester Brokxlaan 2064",
-      "firstSeen": 1794779068092,
-      "goneAt": 1794913552623
-    },
-    "susannadijk-141": {
-      "title": "Susannadijk 141",
-      "firstSeen": 1794779068092,
-      "goneAt": 1794911790500
+    "verwelius": {
+      "listings": {
+        "ketelmeer-29/l197c16": {
+          "title": "Ketelmeer 29",
+          "firstSeen": 1794937284333
+        },
+        "ketelmeer-30/l198c16": {
+          "title": "Ketelmeer 30",
+          "firstSeen": 1794937284333
+        }
+      }
     }
   },
   "heartbeat": "2026-11-17"
