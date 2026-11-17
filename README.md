@@ -1,29 +1,39 @@
-# Hefwonen-monitor
+# Woning Alerts
 
-Checkt elke ~5 minuten https://huuraanbod.hefwonen.nl/huuraanbod op nieuwe woningen.
+Checkt elke ~5 minuten deze huursites op nieuwe woningen:
+
+| Site | Wat je krijgt |
+|---|---|
+| [Hefwonen](https://huuraanbod.hefwonen.nl/huuraanbod) | Elke nieuwe woning een melding; postcode **3085** = **dringend alarm** (ntfy-prioriteit 5) |
+| [Verwelius](https://huurportaal.verwelius.nl/aanbod-huurportaal) | Alleen woningen in **Barendrecht**, en die zijn meteen een **dringend alarm** |
 Het draait gratis op **GitHub Actions** in een openbare repo (onbeperkt gratis), dus je pc hoeft niet aan.
 
-- Nieuwe woning → een melding in de **ntfy**-app (topic staat in GitHub Secret `NTFY_TOPIC`)
-- Nieuwe woning met postcode **3085** → een **dringend alarm** (ntfy-prioriteit 5)
+- Meldingen komen in de **ntfy**-app (topic staat in GitHub Secret `NTFY_TOPIC`)
 - Garages, parkeerplaatsen en bedrijfsruimtes worden genegeerd
-- Als de site stuk is of de layout verandert, krijg je maximaal 1× per dag een ⚠️-melding
+- Als een site stuk is of de layout verandert, krijg je per site maximaal 1× per dag een ⚠️-melding.
+  Een kapotte site houdt de andere niet tegen.
 
 ## Hoe het werkt
 - `.github/workflows/check.yml` draait `node src/main.ts` volgens de planning.
-- `src/nuxt.ts` + `src/scrape.ts` lezen alle woningen uit het `window.__NUXT__`-blok van de
-  pagina, ook die van pagina 2. Ze voeren de code van de site daarbij niet uit.
-- `src/diff.ts` vergelijkt de woningen met `state.json`. Daarna commit de workflow de nieuwe `state.json`.
+- `src/sources.ts` is de lijst met sites, met per site welke woningen tellen en wat een alarm is.
+- `src/hefwonen.ts` + `src/nuxt.ts` lezen alle woningen uit het `window.__NUXT__`-blok van de
+  Hefwonen-pagina, ook die van pagina 2. Ze voeren de code van de site daarbij niet uit.
+- `src/verwelius.ts` leest de woningkaartjes uit de (gewone) HTML van Verwelius.
+- `src/diff.ts` vergelijkt de woningen per site met `state.json`. Daarna commit de workflow de nieuwe `state.json`.
 
 ## Dingen aanpassen
-- **Alarm-postcodes:** `POSTCODE_ALARM` in `.github/workflows/check.yml` (meerdere met komma's, bijv. `"3085,3086"`).
+- **Alarm-postcodes Hefwonen:** `POSTCODE_ALARM` in `.github/workflows/check.yml` (meerdere met komma's, bijv. `"3085,3086"`).
+- **Plaatsen Verwelius:** `VERWELIUS_PLAATSEN` in hetzelfde bestand (bijv. `"Barendrecht,Ridderkerk"`).
+- **Nieuwe site toevoegen:** schrijf een bestand zoals `src/verwelius.ts` en zet het in `src/sources.ts`.
+  De eerste run van een nieuwe site slaat alleen op wat er al staat, zonder meldingen.
 - **Frequentie:** `cron` in hetzelfde bestand. Wordt de repo ooit privé: dan heb je 2000 gratis minuten
   per maand en telt elke run als minimaal 1 minuut, dus zet de cron dan op `*/30`.
-- **Handmatig testen:** ga op GitHub naar Actions → "Hefwonen check" → Run workflow en kies
+- **Handmatig testen:** ga op GitHub naar Actions → "Woning Alerts" → Run workflow en kies
   `test-alarm` of `test-normal`. Of in de terminal:
   `gh workflow run check.yml -f mode=test-alarm`
 
 ## Lokaal
-`npm test` draait de tests op de opgeslagen pagina in `test/fixtures`.
+`npm test` draait de tests op de opgeslagen pagina's in `test/fixtures`.
 `NTFY_TOPIC=... node src/main.ts` doet één echte check (Node 23.6 of nieuwer).
 
 ## Trigger (Cloudflare)

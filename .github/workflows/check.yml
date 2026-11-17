@@ -1,4 +1,4 @@
-name: Hefwonen check
+name: Woning Alerts
 
 on:
   schedule:
@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hefwonen-check
+  group: woning-alerts
   cancel-in-progress: false
 
 jobs:
@@ -29,12 +29,13 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 24
-      - name: Check huuraanbod
+      - name: Check huuraanbod (Hefwonen + Verwelius)
         id: check
         run: node src/main.ts "${{ inputs.mode || 'run' }}"
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           POSTCODE_ALARM: "3085"
+          VERWELIUS_PLAATSEN: "Barendrecht"
       - name: Save state
         if: always()
         run: |

@@ -1,21 +1,8 @@
 import { parseNuxt, type NuxtBlob } from "./nuxt.ts";
+import type { Listing } from "./listing.ts";
 
 export const BASE_URL = "https://huuraanbod.hefwonen.nl";
-export const OVERVIEW_URL = `${BASE_URL}/huuraanbod`;
-
-export interface Listing {
-  slug: string;
-  title: string;
-  postcode: string;
-  city: string;
-  type: string;
-  subtype: string;
-  status: string;
-  rooms: string;
-  area: string;
-  price: string;
-  url: string;
-}
+export const HEFWONEN_URL = `${BASE_URL}/huuraanbod`;
 
 // A value in the minified blob: a string literal, an identifier or a number.
 const TOKEN = String.raw`"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|[A-Za-z_$][\w$]*|-?\d+(?:\.\d+)?|!0|!1`;
@@ -63,7 +50,7 @@ export function parseListings(html: string): Listing[] {
       rooms: str(seg.match(ROOMS)?.[1]),
       area: str(seg.match(AREA)?.[1]),
       price: str(seg.match(PRICE)?.[2]),
-      url: `${OVERVIEW_URL}/${slug}`,
+      url: `${HEFWONEN_URL}/${slug}`,
     });
   });
 
@@ -76,8 +63,8 @@ function asString(nuxt: NuxtBlob, token: string | undefined): string {
   return v === null || v === undefined ? "" : String(v);
 }
 
-export async function fetchListings(): Promise<Listing[]> {
-  const res = await fetch(OVERVIEW_URL, {
+export async function fetchHefwonen(): Promise<Listing[]> {
+  const res = await fetch(HEFWONEN_URL, {
     headers: {
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",

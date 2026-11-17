@@ -1,4 +1,4 @@
-import type { Listing } from "./scrape.ts";
+import type { Listing } from "./listing.ts";
 
 export interface NotifyConfig {
   ntfyServer: string; // e.g. https://ntfy.sh
@@ -31,15 +31,22 @@ export function describe(l: Listing): string {
     l.area,
     l.price && `${l.price} p.m.`,
     l.subtype || l.type,
+    l.available && `per ${l.available}`,
+    l.status,
   ].filter(Boolean);
   return parts.join(" · ");
 }
 
-export async function notifyListing(cfg: NotifyConfig, l: Listing, urgent: boolean): Promise<void> {
-  const pc = l.postcode.replace(/\s+/g, "").slice(0, 4);
+export async function notifyListing(
+  cfg: NotifyConfig,
+  sourceName: string,
+  l: Listing,
+  urgent: boolean,
+): Promise<void> {
+  const where = l.postcode.replace(/\s+/g, "").slice(0, 4) || l.city;
   await publish(cfg, {
-    title: urgent ? `🚨 ${pc}: ${l.title}` : `Nieuwe woning: ${l.title}`,
-    message: `${describe(l)}\n${l.url}`,
+    title: urgent ? `🚨 ${where}: ${l.title}` : `Nieuwe woning: ${l.title}`,
+    message: `${sourceName} · ${describe(l)}\n${l.url}`,
     priority: urgent ? 5 : 4,
     tags: urgent ? ["rotating_light", "house"] : ["house"],
     click: l.url,

@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="nl" xml:lang="nl">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- * * * * * * * * * * * * * * * * * * * * * *
+  *  Website ontwikkeld door CM Specialist  *
+  *      Telefoon:  035 - 7200 700          *
+  *      Website:   www.cmspecialist.nl     *
+  * * * * * * * * * * * * * * * * * * * * * * -->
+  <title>Aanbod huurportaal | Verwelius Beheer B.V.</title><meta name="author" content="Verwelius Beheer B.V." /><meta name="copyright" content="Verwelius Beheer B.V." /><meta name="csrf-token" content="bbf572bf23a72fcc48e19bd6c9efd64ccfcdd9fc677e8e0542ca6d970a1359a5" data-vernieuwen="https://huurportaal.verwelius.nl/">
+  <script src="https://huurportaal.verwelius.nl/cm-js/cm_minify.js?v=781-Y228BC"></script>
+  <link rel="stylesheet" type="text/css" href="https://huurportaal.verwelius.nl/skin/cm_minify.css?v=781-Y228BC" media="all" /><link rel="shortcut icon" type="image/x-icon" href="https://huurportaal.verwelius.nl/skin/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="https://huurportaal.verwelius.nl/skin/maatwerk.css?v=Hkwer3e4781-Y228BC media="all" />
+<link rel="stylesheet" href="https://huurportaal.verwelius.nl/skin/font/stylesheet.css"><meta name="robots" content="index, follow"><link rel="canonical" href="https://huurportaal.verwelius.nl/aanbod-huurportaal" />
+<link rel="alternate" hreflang="nl" href="https://huurportaal.verwelius.nl/aanbod-huurportaal" />
+<script> window.NotifyTaal = {"alert":{"foutmelding":"Helaas, er is een fout opgetreden. Ververs de pagina en probeer het nogmaals.","knop":"Ok","titel":"Let op"},"algemeen":{"confirm":{"titel":"Let op"}},"artikel_detail":{"tekst":{"doos_verkoop":"<div class=\"totaal\">Totaal {doosVerkoopArtikelAantal} {doosVerkoopArtikelAantalEenheid} <span class=\"uitgeschreven\">({doosVerkoopVerpakkingsEenheidAantal} {doosVerkoopVerpakkingsEenheid}<span class=\"artikeleenheidLos\"> + {doosVerkoopLosAantal} {doosVerkoopLosEenheid}<\/span>)<\/span><\/div>","doos_verkoopTotaal":"Totaal"}},"artikel_toevoegen":{"alert":{"aantal_nul_melding":"Vul a.u.b. een geldig aantal in.","subtekst":"Maak a.u.b. een keuze!","titel":"Let op"}},"artikel_verwijderen":{"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren","subtekst":"Verwijderen?","titel":"Let op"}},"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren"},"contact_formulier":{"niet_ingesteld":"Er is geen afzender adres, vul deze in om emails te kunnen versturen"},"couponcode_verwijderen":{"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren","subtekst":"Weet u het zeker?","titel":"Let op"}},"mandje_legen":{"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren","subtekst":"Mandje legen","titel":"Let op"}},"niet_op_voorraad":{"opslaan_als_winkelmand":"De verwijderde artikelen opslaan in een nieuw winkelmandje?","verwijderen_vraag":"Artikelen die niet leverbaar zijn verwijderen uit winkelmand?"},"profiel_adres":{"alert":{"subtekst":"Vul a.u.b. een geldige waarde in voor: ","titel":"Let op"},"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren","standaard":"Adres als standaard instellen?","subtekst":"Adres verwijderen?","titel":"Let op"}},"verlanglijst_email":{"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren","subtekst":"Verwijder e-mail?","titel":"Let op"}},"verwijder_bestand":{"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren","subtekst":"Verwijderen?","titel":"Let op"}},"winkelmand_delen":{"confirm":{"knop_links":"Ok","knop_rechts":"Annuleren","subtekst":"Weet je het zeker?","titel":"Let op"}}};</script><!--[if lt IE 11]><script>document.createElement("nav");document.createElement("header");document.createElement("main");document.createElement("article");document.createElement("footer");</script><![endif]-->
+	<meta property="og:image" content="https://huurportaal.verwelius.nl/userdata/instellingen/logo_verwelius-logo-001-small15.png" />
+	<meta property="og:title" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://huurportaal.verwelius.nl/aanbod-huurportaal" />
+  <meta property="og:description" content="" /><style>.vak:has(.item.detail) {margin-top: 0; padding-top: 0;}
+
+.lijst.aanbodHuur {display: grid; grid-template-columns: repeat(auto-fill,minmax(min(380px, 100%),1fr)); gap: 20px;}
+
+.filters {display: none;}
+
+/* Categorieknoppen boven het aanbod (Toon alles, Woningen, Parkeerplaatsen), zelfde stijl als de labels. Staat buiten .lijst.aanbodHuur */
+.lijstenCategorieen ul {display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0 0 30px 0;}
+.lijstenCategorieen ul li {list-style: none; margin: 0; padding: 0;}
+.lijstenCategorieen ul li::before {content: none;}
+.lijstenCategorieen ul li a {display: block; padding: 12px 20px; background-color: #FFF; color: var(--color1); font-size: 13px; text-transform: uppercase; letter-spacing: .1em; line-height: 1; text-decoration: none; transition: all 0.3s ease;}
+.lijstenCategorieen ul li.actief a, .lijstenCategorieen ul li a:hover {background-color: var(--color1); color: #FFF;}
+
+.lijst.aanbodHuur .item {position: relative; background-color: #FFF;}
+.lijst.aanbodHuur .item .label {padding: 10px 15px; background-color: var(--color1); color: #FFF; line-height: 1; width: fit-content; height: fit-content; font-size: 13px; text-transform: uppercase; letter-spacing: .1em;}
+.lijst.aanbodHuur .item h3 {font-size: 24px; font-weight: 500; color: var(--color1);}
+.lijst.aanbodHuur .item a.knop {padding: 10px 20px; font-size: 18px;}
+
+.lijst.aanbodHuur .item.lijst {color: var(--color1); width: 100%; overflow: hidden;}
+.lijst.aanbodHuur .item.lijst .afbeelding {position: relative; overflow: hidden; display: flex; width: 100%; aspect-ratio: 3/2; }
+.lijst.aanbodHuur .item.lijst .afbeelding img {position: absolute; top: 0; right: 0; bottom: 0; left: 0;width: 100%; height: 100%; object-fit: cover; transition: all 1.2s ease;}
+.lijst.aanbodHuur .item.lijst:hover .afbeelding img {transform: scale(1.1);}
+.lijst.aanbodHuur .item.lijst .afbeelding .label {position: absolute; bottom: 0; left: 0;}
+
+.lijst.aanbodHuur .item.lijst .content {padding: 25px; display: flex; flex-direction: column; gap: 25px; box-sizing: border-box;}
+.lijst.aanbodHuur .item.lijst .content i, .lijst.aanbodHuur .item.lijst .content img {margin-right: 10px; color: var(--color2);}
+.lijst.aanbodHuur .item.lijst .content span {display: flex; align-items: center; white-space: nowrap;}
+
+.lijst.aanbodHuur .item.lijst .content .boven h3 {margin-bottom: 5px; line-height: normal;}
+
+.lijst.aanbodHuur .item.lijst .content .midden {display: grid; grid-template-columns: auto auto; gap: 0 20px; justify-content: space-between; grid-template-areas: "a b" "c d"; padding-right: 20px;}
+.lijst.aanbodHuur .item.lijst .content .midden .woonopp {grid-area: a;}
+.lijst.aanbodHuur .item.lijst .content .midden .kamers {grid-area: c;}
+.lijst.aanbodHuur .item.lijst .content .midden .verbruik {grid-area: b;}
+
+.lijst.aanbodHuur .item .energieLabel {height: 18px; margin-right: 9px; background-size: cover !important;}
+
+.lijst.aanbodHuur .item .energieLabelA\+\+\+\+ {background: url(/skin/images/energieLabels/energielabelApppp.svg?1) no-repeat; aspect-ratio: 52/17;}
+.lijst.aanbodHuur .item .energieLabelA\+\+\+ {background: url(/skin/images/energieLabels/energielabelAppp.svg?1) no-repeat; aspect-ratio: 44/17;}
+.lijst.aanbodHuur .item .energieLabelA\+\+ {background: url(/skin/images/energieLabels/energielabelApp.svg?1) no-repeat; aspect-ratio: 37/17;}
+.lijst.aanbodHuur .item .energieLabelA\+ {background: url(/skin/images/energieLabels/energielabelAp.svg?1) no-repeat; aspect-ratio: 30/17;}
+.lijst.aanbodHuur .item .energieLabelA {background: url(/skin/images/energieLabels/energielabelA.svg?1) no-repeat; aspect-ratio: 23/17;}
+.lijst.aanbodHuur .item .energieLabelB {background: url(/skin/images/energieLabels/energielabelB.svg?1) no-repeat; aspect-ratio: 22/17;}
+.lijst.aanbodHuur .item .energieLabelC {background: url(/skin/images/energieLabels/energielabelC.svg?1) no-repeat; aspect-ratio: 22/17;}
+.lijst.aanbodHuur .item .energieLabelD {background: url(/skin/images/energieLabels/energielabelD.svg?1) no-repeat; aspect-ratio: 23/17;}
+.lijst.aanbodHuur .item .energieLabelE {background: url(/skin/images/energieLabels/energielabelE.svg?1) no-repeat; aspect-ratio: 21/17;}
+.lijst.aanbodHuur .item .energieLabelF {background: url(/skin/images/energieLabels/energielabelF.svg?1) no-repeat; aspect-ratio: 21/17;}
+.lijst.aanbodHuur .item .energieLabelG {background: url(/skin/images/energieLabels/energielabelG.svg?1) no-repeat; aspect-ratio: 22/17;}
+
+.lijst.aanbodHuur .item.lijst .content .onder h3 {margin-bottom: 0;}
+
+.lijst.aanbodHuur .item.lijst a.link {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+
+
+.lijst.detail.aanbodHuur {display: flex; flex-direction: column;}
+.lijst.detail.aanbodHuur .item.detail {background-color: transparent;}
+.lijst.detail.aanbodHuur .item.detail .itemHeader {background-color: #FFF; padding: 25px; position: sticky; top: 100px; z-index: 10; display: grid; align-items: center; grid-template-columns: auto auto auto; grid-template-rows: auto;
+  grid-template-areas: 
+  "a a a"
+  "b b d"
+  "e e f";}
+
+.lijst.detail.aanbodHuur .item.detail .itemHeader .labels.res {display: none;}
+.lijst.detail.aanbodHuur .item.detail .itemHeader .terug {grid-area: a; color: var(--color2); text-decoration: none;}
+.lijst.detail.aanbodHuur .item.detail .itemHeader .terug:hover {text-decoration: underline;}
+.lijst.detail.aanbodHuur .item.detail .itemHeader .terug i {margin-right: 10px;}
+
+.lijst.detail.aanbodHuur .item.detail .itemHeader .titel {grid-area: b; margin-bottom: 0; margin-bottom: 5px; display: flex; align-items: center;}
+
+.lijst.detail.aanbodHuur .item.detail .itemHeader .titel .labels {grid-area: b; display: flex; gap: 15px; margin-left: 40px;}
+.lijst.detail.aanbodHuur .item.detail .itemHeader .titel .labels .energieLabel {height: 28px;}
+
+.lijst.detail.aanbodHuur .item.detail .itemHeader .prijs {grid-area: d; margin-bottom: 0; margin-left: auto; font-weight: unset; line-height: normal;}
+
+.lijst.detail.aanbodHuur .item.detail .itemHeader .adres {grid-area: e;}
+
+.lijst.detail.aanbodHuur .item.detail .itemHeader .titel h1, .lijst.detail.aanbodHuur .item.detail .itemHeader .adres {user-select: text;}
+
+.lijst.detail.aanbodHuur .item.detail .itemHeader .knop.aanvragen {grid-area: f; margin-left: auto;}
+.lijst.detail.aanbodHuur .item.detail .itemHeader .knop:hover {background-color: var(--color1);}
+
+
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder pre {display: flex; padding: 30px 0; margin: 0;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum {width: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: auto; gap: 10px; position: relative;
+  grid-template-areas: 
+  "a a b c" 
+  "a a d e";}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder {position: relative; aspect-ratio: 4 / 3; width: 100%; height: 100%; display: none;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder img {position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; object-fit: cover;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder:nth-child(1) {display: unset; grid-area: a;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder:nth-child(2) {display: unset; grid-area: b;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder:nth-child(3) {display: unset; grid-area: c;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder:nth-child(4) {display: unset; grid-area: d;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder:nth-child(5) {display: unset; grid-area: e;}
+.lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .label.afbeeldingen {position: absolute; bottom: 0; right: 0; background-color: #005eb8b3;}
+
+.lijst.detail.aanbodHuur .item.detail .content {width: 100%; display: grid; grid-template-columns: 3fr 2fr; gap: 80px;}
+
+.lijst.detail.aanbodHuur .item.detail .content .links {padding-top: 20px; position: relative; height: fit-content; padding-bottom: 1em; overflow: hidden; transition: all 0.3s ease;}
+
+.lijst.detail.aanbodHuur .item.detail .content .links.overlay {padding-bottom: 0; transition: all 0.3s ease;}
+.lijst.detail.aanbodHuur .item.detail .content .links.overlay::after {content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg,rgba(244, 244, 244, 0) 60%, rgba(244, 244, 244, 0.5) 70%, rgba(244, 244, 244, 1) 90%, rgba(244, 244, 244, 1) 100%);  transition: all 0.3s ease;}
+
+.lijst.detail.aanbodHuur .item.detail .content .links .toonMeer {display: flex; align-items: center; gap: 10px; position: absolute; bottom: 0; left: 0; background-color: transparent; padding: 0; color: var(--color2); font-size: 18px; font-weight: 500; z-index: 1; margin-right: 5px;  transition: all 0.3s ease;}
+.lijst.detail.aanbodHuur .item.detail .content .links .toonMeer:hover {opacity: 0.5;}
+
+.lijst.detail.aanbodHuur .item.detail .content .links .toonMeer::after {content: "\f054"; font-family: "Font Awesome 5 Pro"; font-weight: 500; transition: all 0.3s ease;}
+.lijst.detail.aanbodHuur .item.detail .content .links .toonMeer:hover::after {transform: rotate(45deg);}
+.lijst.detail.aanbodHuur .item.detail .content .links .toonMinder:hover::after {transform: rotate(-45deg);}
+
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok {background-color: var(--color1); padding: 20px 30px 30px 30px; color: #FFF; height: fit-content;}
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok h2 {font-size: 30px; color: #FFF;}
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok .kenmerken .kenmerk{display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px;}
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok .kenmerken span {width: fit-content;}
+
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok + .blok {margin-top: 30px;}
+
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok .kenmerken .kenmerk.oppervlakte .kenmerkInfo {display: flex;}
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok .kenmerken .kenmerk.oppervlakte .kenmerkInfo .kenmerkTitel {order: 1;}
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok .kenmerken .kenmerk.ligging:has(.kenmerkGroepTitel:empty) {display: none;}
+.lijst.detail.aanbodHuur .item.detail .content .rechts .blok .kenmerken .kenmerk.beschikbaarPer .kenmerkTitel {display: none;}
+
+@media screen and (max-width: 900px) {
+  .lijst.aanbodHuur .item {font-size: 16px;}
+  .lijst.aanbodHuur .item h3 {font-size: 20px;}
+
+  .lijst.detail.aanbodHuur .item.detail .itemHeader {position: relative; top: 0; display: grid; grid-template-columns: 1fr; grid-template-areas: "a" "b" "c" "d" "e" "f";}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .labels {display: none !important;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .labels.res {display: flex !important; gap: 20px;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .labels .energieLabel {height: 26px;}
+
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .terug {grid-area: a;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .titel h1 {margin-bottom: 0;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .titel {grid-area: c;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .adres {grid-area: d; margin-bottom: 10px; line-height: normal;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .labels.res {grid-area: b; margin: 10px auto 5px 0;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .prijs {grid-area: e; margin-left: 0; margin-bottom: 15px;}
+  .lijst.detail.aanbodHuur .item.detail .itemHeader .knop.aanvragen {grid-area: f; margin-left: 0; margin-right: auto;}
+
+
+  .lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum {grid-template-columns: auto auto auto;
+  grid-template-areas: 
+  "a a b"
+  "a a c";}
+  .lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder:nth-child(4), .lijst.detail.aanbodHuur .item.detail .fotoalbumHouder .fotoalbum .afbeeldingHouder:nth-child(5) {display: none;}
+
+  .lijst.detail.aanbodHuur .item.detail .content {display: flex; flex-direction: column; gap: 25px;}
+  .lijst.detail.aanbodHuur .item.detail .content .links .toonMeer {font-size: 16px;}
+  .lijst.detail.aanbodHuur .item.detail .content .rechts .blok {padding: 20px;}
+  .lijst.detail.aanbodHuur .item.detail .content .rechts .blok h2 {font-size: 24px;}
+
+  .lijst.detail.aanbodHuur .item.detail .content .links .toonMeer:hover::after {transform: none;}
+  .lijst.detail.aanbodHuur .item.detail .content .links .toonMinder:hover::after {transform: none;}
+}
+
+@media screen and (max-width: 680px) {
+  .lijst.aanbodHuur .item.lijst .content .midden {display: flex; flex-direction: column;}
+}
+</style>
+
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <link rel="manifest" href="https://huurportaal.verwelius.nl/skin/manifest.json?v=781-Y228BC">
+  <link rel="apple-touch-icon" href="https://huurportaal.verwelius.nl/skin/images/manifest/favicon-192.png?v=781-Y228BC">
+  <meta name="theme-color" content="#ffffff"/>
+  <!-- <link rel="stylesheet" href="https://verwelius.cmspecialist.dev/skin/animsition/animsition.min.css"> -->
+  <script>document.documentElement.setAttribute('data-useragent',  navigator.userAgent);</script>
+</head>
+
+<body>
+  <input type="hidden" id="basisdir" name="basisdir" value="https://huurportaal.verwelius.nl/" />
+  
+  <div id="pdfLayoutkeuze"></div>
+
+  <ul class="footerMenu">
+    <li class="reparatie"><a href="https://huurportaal.verwelius.nl/reparatie">Reparatie</a></li>
+    <li class="aanvang"><a href="https://huurportaal.verwelius.nl/informatie/huurders-informatie">Informatie</a></li>
+    <li class="einde"><a href="https://huurportaal.verwelius.nl/informatie/huurzaken">Huurzaken</a></li>
+    <li class="gebruik"><a href="https://huurportaal.verwelius.nl/informatie/aanpassingen-verbouwen">Aanpassingen</a></li>
+    <li class="veiligheid"><a href="https://huurportaal.verwelius.nl/informatie/overlast-veiligheid">Veiligheid</a></li>
+  </ul>
+  
+  
+  
+    <div class="extrabovenkantHolder"><div class="extrabovenkant">
+      <ul class="account">
+  <li class="inloggen">
+    <div class="inloggenKnop"><span class="titel">Inloggen</span></div>
+    <div class="inloggenBg"></div>
+    <div class="houder">
+      <div class="houder1">
+        <div class="accountKop">Inloggen</div>
+        <div class="email"><input type="email" id="userid55" name="username" value="" placeholder="E-mailadres" /></div>
+        <div class="wachtwoord"><input type="password" id="wachtwoord55" name="password" value="" placeholder="Wachtwoord" autocomplete="current-password" /></div>
+        
+        <div class="inlogKnop">
+          <a onclick="javascript:chkLI55();" id="buttonLoginAccount" class="button pill inlogKnop2">Inloggen</a>
+          <div class="wachtwoordKwijt"><a href="javascript:wwk55();">Wachtwoord vergeten?</a></div>
+        </div>
+        
+        
+      </div>
+      <div class="houder2">
+                      <div class="registreer">Nog geen klant? <a href="https://huurportaal.verwelius.nl/account-aanmaken">Maak een account aan</a></div>
+                    </div>
+    </div>
+  </li>
+  
+  
+</ul>
+      
+      <script> 
+        $("#userid55").on("keypress", function(event){
+          var keycode = (event.keyCode ? event.keyCode : event.which);
+          if(keycode == "13"){
+            document.getElementById("wachtwoord55").focus();
+          }
+        });
+
+        $("#wachtwoord55").on("keypress", function(event){
+          var keycode = (event.keyCode ? event.keyCode : event.which);
+          if(keycode == "13"){
+            chkLI55();
+          }
+        });
+
+        $(".inloggenKnop").on("click", function() {
+          $(".verlanglijst").removeClass("openGeklapt");
+          $(".winkelwagenHouder").removeClass("openGeklapt");
+          $(".inloggen").toggleClass("openGeklapt");
+          $(".account .houder .email input[name=username]").focus();
+          $(".inloggenBg").toggleClass("open");
+        });
+
+        $(".inloggenBg").on("click", function(event){
+          $(".inloggenBg").removeClass("open");
+          $(".inloggen").removeClass("openGeklapt");
+        });
+
+        $(".verlanglijstKnop").on("click", function() {
+          $(".inloggen").removeClass("openGeklapt");
+          $(".winkelwagenHouder").removeClass("openGeklapt");
+          $(".verlanglijst").toggleClass( "openGeklapt" );
+          $(".verlanglijstBg").toggleClass("open");
+        });
+      </script>
+      
+      <script>
+        function chkLI55() {
+          $("#buttonLoginAccount").css("pointer-events", "none");
+          $.post(document.getElementById("basisdir").value + "wb_ajax_checklogin.php", {
+            id1: document.getElementById("userid55").value,
+            id2: document.getElementById("wachtwoord55").value,
+            id4: "55",
+            id5: (document.getElementById("coekieSet") != null && document.getElementById("coekieSet").checked == true) ? "1" : "0",
+            vastePaginaID: 0
+          }).done(function(data) {
+            handleAjaxResponse(data);
+          });
+        }
+        
+        function wwk55(){
+          $.post(document.getElementById("basisdir").value + "wb_ajax_wachtwoord_vergeten.php", {
+            id10: document.getElementById("userid55").value,
+            veldID: "55",
+            vastePaginaID: 0
+          }).done(function(data) {
+            handleAjaxResponse(data);
+          });
+        }
+
+        $(document).on("keyup", function(e) {
+          if (e.keyCode == 27) { 
+            $(".inloggen").removeClass("openGeklapt");
+            $(".inloggenBg").removeClass("open");
+          }
+        });
+      </script>
+    
+    </div></div>
+    <div class="bovenkantHolder">
+      <div class="bovenkant">
+        
+        <a href="https://huurportaal.verwelius.nl" class="logo"><img src="https://huurportaal.verwelius.nl/skin/images/logo.png" alt="Logo" /></a>
+        
+        <div class="art-nav">
+          <nav>
+            <ul class="art-menu"><li><a href="https://huurportaal.verwelius.nl"  ><span class="t">Home</span></a></li>
+<li><a href="https://huurportaal.verwelius.nl/informatie"  ><span class="t">Informatie</span></a><ul><li><a href="https://huurportaal.verwelius.nl/informatie/huurders-informatie"  class="">Huurders informatie</a></li>
+<li class="separatorHouder"><span class="separator"></span></li>
+<li><a href="https://huurportaal.verwelius.nl/informatie/huurzaken"  class="">Huurzaken</a></li>
+<li class="separatorHouder"><span class="separator"></span></li>
+<li><a href="https://huurportaal.verwelius.nl/informatie/aanpassingen-verbouwen"  class="">Aanpassingen & verbouwen</a></li>
+<li class="separatorHouder"><span class="separator"></span></li>
+<li><a href="https://huurportaal.verwelius.nl/informatie/overlast-veiligheid"  class="">Overlast & veiligheid</a></li>
+</ul></li>
+<li><a href="https://huurportaal.verwelius.nl/nieuws"  ><span class="t">Nieuws</span></a></li>
+<li><a href="https://huurportaal.verwelius.nl/contact"  ><span class="t">Contact</span></a></li>
+<li><a href="https://huurportaal.verwelius.nl/aanbod-huurportaal"  class="active"><span class="t">Aanbod huurportaal</span></a><ul><li><a href="https://huurportaal.verwelius.nl/aanbod-huurportaal/meest-gestelde-vragen"  class="">Meest gestelde vragen</a></li>
+</ul></li>
+<li><a href="https://huurportaal.verwelius.nl/inloggen"  ><span class="t inloggen">Inloggen</span></a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="shopitems"></div>
+        <div class="resMenubalk">
+  <div class="resMenubalkinhoud">
+    <a id="menuopenen" class="resMenucategorieknop"><i class="far fa-bars"></i></a>    
+  </div>
+  <div class="resMenuHolder"> 
+  	<div class="resMenuinhoud">
+  		
+
+  		
+
+  		
+      <div class="resMenublok drie">
+  			<div class="resMenublokinhoud">
+  				
+  			</div>
+			</div>
+			
+			<div class="resMenublok een"> 
+  			<div class="resMenublokinhoud">
+  				<ul>
+  					
+  					
+
+  				</ul>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</div>
+
+
+<script>
+$(function(){
+		
+	var hoogtePagina =  window.innerHeight - ($('.extrabovenkantHolder').height() + $('.bovenkantHolder').height());		
+
+	$('.resMenucategorieknop').on('click', function (e) {
+
+		if($('.resMenucategorieknop').hasClass('open')) {
+				$('body').attr('style', 'height:' + hoogtePagina + 'px !important; overflow: hidden; position: fixed; width: 100%;');
+				$('.resMenuHolder').attr('style', 'height:' + hoogtePagina + 'px;');
+				$('.extrabovenkantHolder, .resMenuHolderBg').addClass('open');
+		} else {
+				$('body').attr('style', '');
+				$('.resMenuHolder').attr('style', '');
+				$('.extrabovenkantHolder, .resMenuHolderBg').removeClass('open');
+		}
+	});
+
+	$('.resMenuHolderBg, .zoeken').on('click', function () {
+		$('.extrabovenkantHolder, .resMenuHolderBg, .resMenucategorieknop, .resMenuHolder').removeClass('open');
+		$('body').attr('style', '');
+	});
+
+
+	$('.openklapper').on('click', function(){
+        if($(this).hasClass('open')){
+
+          $('.resMenublokinhoud > ul > .resMenuItem').addClass('sluiten');
+          $(this).parent('.resMenuItem').addClass('open');
+        }else{
+          $('.resMenublokinhoud > ul > .resMenuItem').removeClass('sluiten');
+          $(this).parent('.resMenuItem').removeClass('open');
+        }
+      });
+
+});
+</script>
+      </div>
+      <ul class="art-menu winkelmenu"></ul>
+    </div>
+    <div class="resMenuHolderBg"></div>
+
+  
+
+  <main>
+    <div id="art-main" class="animsition">
+      <div class="art-Sheet">
+        
+        <!-- 
+        <div class="art-sidebar1">
+          
+          
+          
+        </div>
+        -->
+        <div class="art-content">
+          <article><h1>Aanbod huurportaal</h1>
+
+<h5>Alle woningen voor u op een rij</h5>
+
+<p style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px"><a href="https://huurportaal.verwelius.nl/aanbod-huurportaal/meest-gestelde-vragen"><span style="color:#0033cc">Lees hier de meest gestelde vragen&nbsp;met antwoorden</span></a></p>
+
+<p></p>
+
+<p>Heb je jouw droomwoning nog niet kunnen vinden? Schrijf je in voor de e-mailnotificatie en ontvang ons nieuwe aanbod als eerste in de mail!</p>
+
+<p><a class="knop" data-fancybox="" data-src="#inschrijven-nieuwsbrief">Inschrijven voor e-mailnotificatie</a></p>
+
+<div id="inschrijven-nieuwsbrief" style="display:none; max-width:500px">
+
+<div class="mailingWidgetWrap " id="mailingWidget_1_1">
+  <div class="mailingWidgetIntro"><h2>Inschrijven voor emailnotificatie</h2>
+
+<h5>Jouw droomwoning nog niet voorbij zien komen?</h5>
+
+<p>Geen probleem, wij zoeken graag met je mee! Schrijf je in voor onze emailnotificatie en geef je voorkeursregio&#39;s aan. Zo ontvang je automatisch een update in je mailbox zodra we een woning hebben die bij jouw wensen past.</p>
+</div>
+  <div class="mailingWidget">
+    <!-- honeypot tegen bots: verborgen veld dat mensen niet invullen -->
+    <div class="mailingWidgetHoneypot" style="position:absolute;left:-9999px;" aria-hidden="true">
+      <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
+    
+      <div class="mailingWidgetRij">
+        <label>Naam</label>
+        <input type="text" name="naam" required>
+      </div>
+    
+    <div class="mailingWidgetRij">
+      <label>E-mailadres</label>
+      <input type="email" name="email" required>
+    </div>
+    
+      <div class="mailingWidgetRegios">
+        <span class="mailingWidgetLabel">Provincie</span>
+        
+          <label class="mailingWidgetCheck"><input class="mailingKenmerk" type="checkbox" name="kenmerken[]" value="49"> Noord-Holland</label>
+        
+          <label class="mailingWidgetCheck"><input class="mailingKenmerk" type="checkbox" name="kenmerken[]" value="50"> Zuid-Holland</label>
+        
+          <label class="mailingWidgetCheck"><input class="mailingKenmerk" type="checkbox" name="kenmerken[]" value="51"> Flevoland</label>
+        
+          <label class="mailingWidgetCheck"><input class="mailingKenmerk" type="checkbox" name="kenmerken[]" value="53"> Utrecht</label>
+        
+          <label class="mailingWidgetCheck"><input class="mailingKenmerk" type="checkbox" name="kenmerken[]" value="54"> Gelderland</label>
+        
+      </div>
+    
+    <button type="button" class="mailingWidgetKnop">Schrijf mij in</button>
+  </div>
+</div>
+<script>
+(function () {
+  var wrap = document.getElementById('mailingWidget_1_1');
+  if (!wrap || wrap.dataset.mwInit) { return; }
+  wrap.dataset.mwInit = '1';
+  var cfg = {"actie":"https:\/\/huurportaal.verwelius.nl\/campagne_inschrijven.php","caId":1,"bron":"widget","bedanktKlaar":"\n  \u003Cdiv class=\u0022mailingWidget mailingWidgetBedankt\u0022\u003EBedankt! Je bent ingeschreven.\u003C\/div\u003E\n","bedanktBevestig":"\n  \u003Cdiv class=\u0022mailingWidget mailingWidgetBedankt\u0022\u003EBedankt! Controleer je e-mail om je inschrijving te bevestigen.\u003C\/div\u003E\n","kiesMin":"Maak minimaal één keuze.","fout":"Er ging iets mis. Probeer het opnieuw."};
+  var knop = wrap.querySelector('.mailingWidgetKnop');
+
+  // foutmelding tonen (boven de knop)
+  function toonFout(m) {
+    var f = wrap.querySelector('.mailingWidgetFout');
+    if (!f) {
+      f = document.createElement('div');
+      f.className = 'mailingWidgetFout';
+      if (knop) { knop.parentNode.insertBefore(f, knop); } else { wrap.appendChild(f); }
+    }
+    f.textContent = m;
+  }
+
+  // inschrijving versturen via fetch (geen page-reload)
+  function verstuur() {
+    var email = wrap.querySelector('input[name=email]');
+    var naam = wrap.querySelector('input[name=naam]');
+    if (email && email.reportValidity && !email.reportValidity()) { return; }
+    if (naam && naam.reportValidity && !naam.reportValidity()) { return; }
+
+    // minstens één kenmerk verplicht als er kenmerk-checkboxen zijn
+    var boxes = wrap.querySelectorAll('.mailingKenmerk');
+    var gekozen = [];
+    for (var i = 0; i < boxes.length; i++) { if (boxes[i].checked) { gekozen.push(boxes[i].value); } }
+    if (boxes.length && !gekozen.length) { toonFout(cfg.kiesMin); return; }
+
+    var fd = new FormData();
+    fd.append('ajax', '1');
+    fd.append('CA_ID', cfg.caId);
+    fd.append('bron', cfg.bron);
+    var hp = wrap.querySelector('input[name=website]');
+    if (hp) { fd.append('website', hp.value); }
+    fd.append('email', email ? email.value : '');
+    if (naam) { fd.append('naam', naam.value); }
+    for (var j = 0; j < gekozen.length; j++) { fd.append('kenmerken[]', gekozen[j]); }
+
+    if (knop) { knop.disabled = true; }
+    fetch(cfg.actie, { method: 'POST', body: fd, headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.ok) {
+          wrap.innerHTML = res.bevestig ? cfg.bedanktBevestig : cfg.bedanktKlaar;
+        } else {
+          if (knop) { knop.disabled = false; }
+          toonFout(cfg.fout);
+        }
+      })
+      .catch(function () { if (knop) { knop.disabled = false; } toonFout(cfg.fout); });
+  }
+
+  if (knop) { knop.addEventListener('click', function (e) { e.preventDefault(); verstuur(); }); }
+  // Enter in een tekstveld verstuurt ook (er is geen <form> die dat native doet)
+  wrap.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') {
+      e.preventDefault(); verstuur();
+    }
+  });
+})();
+</script>
+</div>
+<div class="lijstenCategorieen"><ul><li class="actief"><a href="https://huurportaal.verwelius.nl/aanbod-huurportaal">Toon alles</a></li><li class=""><a href="https://huurportaal.verwelius.nl/woningen">Woningen</a></li><li class=""><a href="https://huurportaal.verwelius.nl/parkeerplaatsen">Parkeerplaatsen</a></li></ul></div>
+            <div class="filters">
+            <div class="toelichting"></div>
+            <div class="beschikbaar">{aantal_resultaten} Resultaten</div>
+            <div class="cleared"></div>
+            
+            <ul class="kenmerkgroepHouder">
+            <li class="kenmerkgroep">
+              <a class="titel">Type Huur</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM39">
+                      <input type="checkbox" value="1" name="KM39" data-kenmerkid="39" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Per maand</span>
+                      <span class="aantal LAKM39">16</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="16">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Bouwvorm</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM42">
+                      <input type="checkbox" value="1" name="KM42" data-kenmerkid="42" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Bestaande bouw</span>
+                      <span class="aantal LAKM42">10</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="10">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM43">
+                      <input type="checkbox" value="1" name="KM43" data-kenmerkid="43" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Nieuwbouw</span>
+                      <span class="aantal LAKM43">1</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="1">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Type</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM33">
+                      <input type="checkbox" value="1" name="KM33" data-kenmerkid="33" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Tussenwoning</span>
+                      <span class="aantal LAKM33">4</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="4">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM34">
+                      <input type="checkbox" value="1" name="KM34" data-kenmerkid="34" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Hoekwoning</span>
+                      <span class="aantal LAKM34">4</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="4">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM38">
+                      <input type="checkbox" value="1" name="KM38" data-kenmerkid="38" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Appartement</span>
+                      <span class="aantal LAKM38">3</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="3">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Beschikbaarheid</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM8">
+                      <input type="checkbox" value="1" name="KM8" data-kenmerkid="8" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Beschikbaar</span>
+                      <span class="aantal LAKM8">11</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="11">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM9">
+                      <input type="checkbox" value="1" name="KM9" data-kenmerkid="9" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Verhuurd</span>
+                      <span class="aantal LAKM9">4</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="4">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM10">
+                      <input type="checkbox" value="1" name="KM10" data-kenmerkid="10" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Onder optie</span>
+                      <span class="aantal LAKM10">1</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="1">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Beschikbaar per</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM48">
+                      <input type="checkbox" value="1" name="KM48" data-kenmerkid="48" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Beschikbaar per:</span>
+                      <span class="aantal LAKM48">16</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="16">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Energielabel</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM15">
+                      <input type="checkbox" value="1" name="KM15" data-kenmerkid="15" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">A+++</span>
+                      <span class="aantal LAKM15">3</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="3">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM13">
+                      <input type="checkbox" value="1" name="KM13" data-kenmerkid="13" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">A+</span>
+                      <span class="aantal LAKM13">1</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="1">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM12">
+                      <input type="checkbox" value="1" name="KM12" data-kenmerkid="12" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">A</span>
+                      <span class="aantal LAKM12">7</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="7">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Aantal kamers</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM24">
+                      <input type="checkbox" value="1" name="KM24" data-kenmerkid="24" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">2</span>
+                      <span class="aantal LAKM24">1</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="1">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM25">
+                      <input type="checkbox" value="1" name="KM25" data-kenmerkid="25" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">3</span>
+                      <span class="aantal LAKM25">2</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="2">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM26">
+                      <input type="checkbox" value="1" name="KM26" data-kenmerkid="26" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">4</span>
+                      <span class="aantal LAKM26">3</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="3">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM27">
+                      <input type="checkbox" value="1" name="KM27" data-kenmerkid="27" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">5</span>
+                      <span class="aantal LAKM27">5</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="5">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Woonoppervlakte</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM45">
+                      <input type="checkbox" value="1" name="KM45" data-kenmerkid="45" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">m²</span>
+                      <span class="aantal LAKM45">11</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="11">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Huurprijs</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM44">
+                      <input type="checkbox" value="1" name="KM44" data-kenmerkid="44" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">€</span>
+                      <span class="aantal LAKM44">16</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="16">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Provincie</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM49">
+                      <input type="checkbox" value="1" name="KM49" data-kenmerkid="49" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Noord-Holland</span>
+                      <span class="aantal LAKM49">5</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="5">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM50">
+                      <input type="checkbox" value="1" name="KM50" data-kenmerkid="50" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Zuid-Holland</span>
+                      <span class="aantal LAKM50">2</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="2">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM51">
+                      <input type="checkbox" value="1" name="KM51" data-kenmerkid="51" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Flevoland</span>
+                      <span class="aantal LAKM51">3</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="3">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM53">
+                      <input type="checkbox" value="1" name="KM53" data-kenmerkid="53" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Utrecht</span>
+                      <span class="aantal LAKM53">2</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="2">
+                    </label>
+                  </div>
+                </li>
+                
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM54">
+                      <input type="checkbox" value="1" name="KM54" data-kenmerkid="54" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">Gelderland</span>
+                      <span class="aantal LAKM54">3</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="3">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Service kosten per maand</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM46">
+                      <input type="checkbox" value="1" name="KM46" data-kenmerkid="46" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">€</span>
+                      <span class="aantal LAKM46">5</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="5">
+                    </label>
+                  </div>
+                </li>
+                </ul></li>
+            <li class="kenmerkgroep">
+              <a class="titel">Oppervlakte</a><ul class="kenmerken">
+                <li class="kenmerk">
+                  <div class="filterCheck">
+                    <label class="LKM55">
+                      <input type="checkbox" value="1" name="KM55" data-kenmerkid="55" class="kenmerkInput"  onchange="lijstenSetFilter();">
+                      <span class="omschrijving">m²</span>
+                      <span class="aantal LAKM55">3</span>
+                      <!-- Origineel aantal (voor eventuele JS-berekeningen) -->
+                      <input type="hidden" style="display:none;" class="LAKMORG1" value="3">
+                    </label>
+                  </div>
+                </li>
+                </ul></li></ul></div>
+          <script>
+            /**
+             * Leest alle aangevinkte checkboxen uit, bouwt een komma-gescheiden
+             * string van kenmerk-ID's en herlaadt de pagina met ?filter=<ids>.
+             */
+            function lijstenSetFilter() {
+              var checkedKenmerken = [];
+              $(".kenmerk .kenmerkInput").each(function(){
+                var $this = $(this);
+                if($this.prop("checked")) {
+                  checkedKenmerken.push($this.data("kenmerkid"));
+                }
+              });
+
+              var filter = checkedKenmerken.join(",");
+              var queryString = updateQueryStringParameter(window.location.href, "filter", filter)
+              window.location = queryString;
+            }
+
+            /**
+             * Verwijdert de ?filter= parameter uit de URL en herlaadt de pagina,
+             * waardoor alle filters worden gewist.
+             */
+            function lijstenFiltersWissen() {
+              var queryString = removeURLParameter(window.location.href, "filter")
+              window.location = queryString;
+            }
+
+            /**
+             * Verwijdert een specifieke querystring-parameter uit een URL.
+             * Iteratie van achteren zodat verwijderen de index niet verstoort.
+             */
+            function removeURLParameter(url, parameter) {
+              var urlparts = url.split('?');
+              if (urlparts.length >= 2) {
+                var prefix = encodeURIComponent(parameter) + '=';
+                var pars = urlparts[1].split(/[&;]/g);
+                for (var i = pars.length; i-- > 0;) {
+                  if (pars[i].lastIndexOf(prefix, 0) !== -1) {
+                    pars.splice(i, 1);
+                  }
+                }
+                return urlparts[0] + (pars.length > 0 ? '?' + pars.join('&') : '');
+              }
+              return url;
+            }
+
+            /**
+             * Voegt een querystring-parameter toe of vervangt de bestaande waarde.
+             */
+            function updateQueryStringParameter(uri, key, value) {
+              var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+              var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+              if (uri.match(re)) {
+                return uri.replace(re, '$1' + key + "=" + value + '$2');
+              }
+              else {
+                return uri + separator + key + "=" + value;
+              }
+            }
+          </script><div class="lijst aanbodHuur " id="lijstId16"><div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/214-de-gashouder-82-85a8-T.webp?v=jJXqYNHKoR" class="klein" alt="De Gashouder 82" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>De Gashouder 82</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Zaandam</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 76 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 3</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA+++"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-12-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1595 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/de-gashouder-82/l214c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/195-de-gashouder-54-28ab-T.webp?v=jJXqYNHKoR" class="klein" alt="De Gashouder 54" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>De Gashouder 54</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Zaandam</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 91 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 3</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA+++"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-12-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1795 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/de-gashouder-54/l195c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/193-bestevaer-59-df16-T.webp?v=jJXqYNHKoR" class="klein" alt="Bestevaer 59" loading="lazy" />
+    <span class="label">Verhuurd</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Bestevaer 59</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Huizen</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 61 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 2</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA+++"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 2-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1300 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/bestevaer-59/l193c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/187-marickenlaan-1-2352-T.webp?v=jJXqYNHKoR" class="klein" alt="Marickenlaan 1" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Marickenlaan 1</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Wilnis</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 135 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 5</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA+"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1850 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/marickenlaan-1/l187c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/152-marickenlaan-2-f337-T.webp?v=jJXqYNHKoR" class="klein" alt="Marickenlaan 2" loading="lazy" />
+    <span class="label">Verhuurd</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Marickenlaan 2</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Wilnis</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 135 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 4</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-9-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1850 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/marickenlaan-2/l152c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/145-klompenmaker-49-bca4-T.webp?v=jJXqYNHKoR" class="klein" alt="Klompenmaker 49" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Klompenmaker 49</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Wilnis</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 136 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 5</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1950 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/klompenmaker-49/l145c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/205-havenpoort-26-e4cd-T.webp?v=jJXqYNHKoR" class="klein" alt="Havenpoort 26" loading="lazy" />
+    <span class="label">Verhuurd</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Havenpoort 26</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Nieuw-Vennep</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 140 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 5</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-12-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1475 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/havenpoort-26/l205c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/209-huibert-pootstraat-15-81ea-T.webp?v=jJXqYNHKoR" class="klein" alt="Huibert Pootstraat 15" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Huibert Pootstraat 15</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Heemskerk</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 149 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 5</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-1-2027</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1595 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/huibert-pootstraat-15/l209c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/197-ketelmeer-29-c4e0-T.webp?v=jJXqYNHKoR" class="klein" alt="Ketelmeer 29" loading="lazy" />
+    <span class="label">Onder optie</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Ketelmeer 29</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Barendrecht</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 109 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 4</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-12-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1350 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/ketelmeer-29/l197c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/198-ketelmeer-30-e108-T.webp?v=jJXqYNHKoR" class="klein" alt="Ketelmeer 30" loading="lazy" />
+    <span class="label">Verhuurd</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Ketelmeer 30</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Barendrecht</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 109 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 4</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-12-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1350 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/ketelmeer-30/l198c16" class="link"></a>
+</div>
+<div class="item lijst">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/213-lou-costellostraat-33-584d-T.webp?v=jJXqYNHKoR" class="klein" alt="Lou Costellostraat 33" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Lou Costellostraat 33</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Almere</span>
+    </div>
+    <div class="midden">
+      <span class="woonopp"><img src="/skin/images/iconen/woonoppervlakte.svg" alt="">Woonopp. 123 m<sup>2</sup></span>
+      <span class="kamers"><i class="fal fa-door-closed"></i>Kamers 5</span>
+      <span class="verbruik"><div class="energieLabel energieLabelA"></div> Energielabel</span>
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-12-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 1500 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/lou-costellostraat-33/l213c16" class="link"></a>
+</div>
+
+<div class="item lijst parkeerplaats">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/206-vogelplantsoen-13-garage-ae12-T.webp?v=jJXqYNHKoR" class="klein" alt="Vogelplantsoen 13 - Garage" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Vogelplantsoen 13 - Garage</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Dieren</span>
+    </div>
+    <div class="midden">
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 135 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/vogelplantsoen-13-garage/l206c16" class="link"></a>
+</div>
+
+<div class="item lijst parkeerplaats">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/207-vogelplantsoen-12-garage-0ea1-T.webp?v=jJXqYNHKoR" class="klein" alt="Vogelplantsoen 12 - Garage" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Vogelplantsoen 12 - Garage</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Dieren</span>
+    </div>
+    <div class="midden">
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 135 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/vogelplantsoen-12-garage/l207c16" class="link"></a>
+</div>
+
+<div class="item lijst parkeerplaats">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/208-mezenlaan-6-garage-b9d2-T.webp?v=jJXqYNHKoR" class="klein" alt="Mezenlaan 6 - Garage" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Mezenlaan 6 - Garage</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Dieren</span>
+    </div>
+    <div class="midden">
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 125 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/mezenlaan-6-garage/l208c16" class="link"></a>
+</div>
+<div class="item lijst parkeerplaats">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/210-beneluxlaan-747-parkeerplek-2-eeb9-T.webp?v=jJXqYNHKoR" class="klein" alt="Beneluxlaan 747 - Parkeerplek 2" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Beneluxlaan 747 - Parkeerplek 2</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Almere</span>
+    </div>
+    <div class="midden">
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 50 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/beneluxlaan-747-parkeerplek-2/l210c16" class="link"></a>
+</div><div class="item lijst parkeerplaats">
+  <div class="afbeelding">
+    <img src="https://huurportaal.verwelius.nl/userdata/lijsten/16/211-beneluxlaan-747-parkeerplek-17-19f7-T.webp?v=jJXqYNHKoR" class="klein" alt="Beneluxlaan 747 - Parkeerplek 17" loading="lazy" />
+    <span class="label">Beschikbaar</span>
+  </div>
+  <div class="content">
+    <div class="boven">
+      <h3>Beneluxlaan 747 - Parkeerplek 17</h3>
+      <span class="plaats"><i class="fal fa-map-marker-alt"></i>Almere</span>
+    </div>
+    <div class="midden">
+      <span class="beschikbaar"><i class="fal fa-calendar-alt"></i> 1-11-2026</span>
+    </div>
+    <div class="onder">
+      <h3>€ 50 Per maand</h3>
+    </div>
+  </div>
+  <a href="https://huurportaal.verwelius.nl/beneluxlaan-747-parkeerplek-17/l211c16" class="link"></a>
+</div></div></article>
+        </div>
+        <!-- 
+        <div class="art-sidebar2">
+          
+        </div>
+        -->
+      </div>
+    </div>
+
+  </main>
+  <footer class="wegInApp">
+    <div class="pageFooterHolder">
+      <div class="pageFooter">
+        <div class="extramenu"><a class="" href="https://huurportaal.verwelius.nl/privacy-policy" >Privacy Policy</a> <span class="seperator">|</span> <a class="" href="https://www.cmspecialist.nl" target="_blank" rel="noopener noreferrer">Website door CM Specialist</a></div>
+        <div class="SMHolder"><a href="tel:+31355284000" target="_blank" rel="noopener noreferrer"><em class="fa-phone-alt fas"> </em></a> <a href="mailto:beheer@verwelius.nl" target="_blank" rel="noopener noreferrer"><em class="fa-envelope fas"> </em></a></div>
+      </div>
+    </div>
+    <div class="pageFooterKnoppenHolder">
+      <div class="pageFooterKnoppen">
+        <span class="copyright">© 2026 Verwelius Beheer B.V. Alle rechten voorbehouden.</span>
+      </div>
+    </div>
+  </footer>
+  <link rel="stylesheet" href="https://huurportaal.verwelius.nl/skin_default/font-awesome-pro/css/all.min.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bar7qun.css">
+  <!-- <script src="https://verwelius.cmspecialist.dev/skin/animsition/animsition.min.js"></script> -->
+  <link  href="https://huurportaal.verwelius.nl/skin/datepicker.css" rel="stylesheet">
+  <script src="https://huurportaal.verwelius.nl/skin/datepicker.js"></script>
+  <script src="https://huurportaal.verwelius.nl/skin/datepicker.nl-NL.js"></script>
+  <script src="https://huurportaal.verwelius.nl/skin/maatwerk.js?v=781-Y228BC"></script>
+  <script>
+    $('.resMenucategorieknop').on('click', function(){
+      $(this).toggleClass("open");
+      $(".resMenuHolder").toggleClass("open");
+      $(".resZoeken").removeClass("open");
+    });
+
+    $('.resMenuZoekenKnop').on('click', function(){
+      $(this).parent().parent().find(".resZoeken").toggleClass("open");
+      $(this).parent().parent().find(".resMenuHolder").removeClass("open");
+    });
+
+    /* De uitklap-handlers van het menu staan verderop als delegated handlers,
+       zodat ze ook werken op het lazy geladen menu. */
+
+    function respSearch(){
+      $.post("https://huurportaal.verwelius.nl/wb_ajax_webwinkel_zoeken_opslaan.php", {
+        zoekWoord: document.getElementById("resZoekveld").value
+      }).done(function(data) {
+        handleAjaxResponse(data);
+        window.location.href = "https://huurportaal.verwelius.nl/zoekresultaat?search="+document.getElementById("resZoekveld").value;
+      });
+    }
+
+    function respCheckVerlang() {
+      $.post("https://huurportaal.verwelius.nl/wb_ajax_mijnaccount_verlanglijst_check_code.php", {
+        verlangLijstID: document.getElementById('respVerlangLijstCode').value
+      }).done(function(data) {
+        handleAjaxResponse(data);
+      });
+    }
+    </script><script>
+    (function(){
+      var respMenuGeladen = false;
+      $(document).on("click", ".resMenucategorieknop", function(){
+        if(respMenuGeladen){ return; }
+        respMenuGeladen = true;
+        // De bestaande querystring moet mee: pagina's als het artikeldetail doen anders een 301
+        // naar hun canonieke url (bijv. ?m=<moederartikel>) waarbij ajaxResponsiveMenu wegvalt,
+        // omdat de router alleen bekende parameters doorgeeft. Het menu bleef dan leeg.
+        var respZoekdeel = window.location.search;
+        var respMenuUrl = window.location.pathname + (respZoekdeel ? respZoekdeel + "&" : "?") + "ajaxResponsiveMenu=1";
+        $.get(respMenuUrl, function(html){
+          // parseHTML voert geen scripts uit; we pakken alleen de menu-inhoud eruit.
+          var inhoud = $($.parseHTML(html)).find(".resMenuinhoud").addBack(".resMenuinhoud").filter(".resMenuinhoud").first().html();
+          if(inhoud){
+            $(".resMenuHolder .resMenuinhoud").html(inhoud);
+          } else {
+            // Niets bruikbaars terug: bestaande inhoud laten staan en een volgende tik opnieuw laten proberen.
+            respMenuGeladen = false;
+          }
+        }).fail(function(){
+          respMenuGeladen = false;
+        });
+      });
+      for(var laag = 1; laag <= 5; laag++){
+        (function(l){
+          $(document).on("click", ".resMenuinhoud .openklapper.laag" + l, function(){
+            $(this).toggleClass("open");
+            $(this).parent().find(".resMenuItemHolder.laag" + l).toggleClass("open");
+          });
+        })(laag);
+      }
+      $(document).on("click", ".resMenuinhoud .openklapper", function(){
+        if($(this).hasClass("open")){
+          $(".resMenublokinhoud > ul > .resMenuItem").addClass("sluiten");
+          $(this).parent(".resMenuItem").addClass("open");
+        } else {
+          $(".resMenublokinhoud > ul > .resMenuItem").removeClass("sluiten");
+          $(this).parent(".resMenuItem").removeClass("open");
+        }
+      });
+    })();
+  </script><script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@id": "https://huurportaal.verwelius.nl/aanbod-huurportaal",
+                        "name": "Aanbod huurportaal"
+                    }
+                }
+            ]
+        }
+    ]
+}</script><script>// Aantal niet zichtbare afbeeldingen tellen
+const aantal = $(".afbeeldingHouder").length;
+const aftrekWaarde = $(window).width() <= 900 ? 3 : 5;
+const resultaat = aantal - aftrekWaarde;
+if (resultaat < 1) {
+  $(".label.afbeeldingen").hide();
+} else {
+  $("span.aantal").text(resultaat);
+}
+
+// Toevoegen lees meer als links langer is dan rechts
+const hoogteRechts = $(".rechts > .blok:first-child").outerHeight();
+const hoogteLinks = $(".links").outerHeight();
+
+$(".links").css("height", hoogteRechts + "px");
+
+if (hoogteLinks >= hoogteRechts) {
+  $(".links").addClass("overlay");
+  $(".toonMeer").css("display", "flex");
+} else {
+  $(".toonMeer").hide();
+}
+
+$(".toonMeer").on("click", function () {
+  const linksElement = $(".links");
+  linksElement.toggleClass("overlay");
+
+  if (linksElement.hasClass("overlay")) {
+    linksElement.css("height", hoogteRechts + "px");
+    $(this).text("Toon meer");
+    $(this).removeClass("toonMinder");
+  } else {
+    linksElement.css("height", "auto");
+    $(this).text("Toon minder");
+    $(this).addClass("toonMinder");
+  }
+});
+
+$(document).ready(function () {
+    $('.lijst.detail.aanbodHuur .item.detail .content .rechts .kenmerken .kenmerk.beschikbaarPer').each(function () {
+        var $omschrijving = $(this).find('.kenmerkOmschrijving');
+        if (!$omschrijving.length || $omschrijving.text().trim() === '') {
+            $(this).hide();
+        }
+    });
+
+    $('.beschikbaar').each(function () {
+        var $clone = $(this).clone();
+        $clone.find('i').remove();
+        if ($clone.text().trim() === '') {
+            $(this).hide();
+        }
+    });
+});</script>
+
+  <script>
+    /* Rotator */
+  $('.lijst.rotator .item:first-child').toggleClass('actief');
+  $('.lijst.rotator').each(function () {
+    (function ($set) {
+      setInterval(function () {
+        var $cur = $set.find('.actief').removeClass('actief');
+        var $next = $cur.next().length ? $cur.next() : $set.children().eq(0);
+        $next.addClass('actief');
+      }, 5000);
+    })($(this));
+
+  });
+  /* Date picker */
+  $('#TXT88, #TXT89').datepicker({ 
+            language: 'nl-NL', 
+            startDate: new Date(), 
+            autoHide: true,
+            filter: function(date, view) {
+                if ((date.getDay() === 0 || date.getDay() === 6 ) && view === 'day')
+                { 
+                    return false;
+                }
+            } 
+        });
+  $("#TXT88, #TXT89").prop('readOnly', true);
+  /* Mobiele versie */
+  $(function() {
+    var pathname = 'https://huurportaal.verwelius.nl/aanbod-huurportaal';
+    $('.footerMenu li a').each(function() {
+      if ($(this).attr('href') === pathname || $(this).attr('href') === pathname.slice(0, -1)) {
+        $(this).parent().addClass('actief');
+      }
+    });
+  });
+  </script>
+</body>
+</html>

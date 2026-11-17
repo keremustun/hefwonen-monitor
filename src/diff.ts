@@ -1,11 +1,8 @@
-import type { Listing } from "./scrape.ts";
+import { containsNonHome, type Listing } from "./listing.ts";
 
-// Types on the site that are not homes (shops, garages, parking spots).
-const NON_HOME = ["bedrijf", "winkel", "parkeer", "garage", "berging", "kantoor"];
-
+// Hefwonen: decide by type only (its titles are street addresses).
 export function isHome(l: Listing): boolean {
-  const t = `${l.type} ${l.subtype}`.toLowerCase();
-  return !NON_HOME.some((w) => t.includes(w));
+  return !containsNonHome(`${l.type} ${l.subtype}`);
 }
 
 export function normalizePostcode(pc: string): string {

@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, test } from "vitest";
-import { parseListings } from "../src/scrape.ts";
+import { parseListings } from "../src/hefwonen.ts";
 import { isHome, matchesAlarm } from "../src/diff.ts";
 import { unescapeJs } from "../src/nuxt.ts";
 

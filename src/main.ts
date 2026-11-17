@@ -1,17 +1,21 @@
-// Entry point for GitHub Actions (or any machine with Node 23.6+):
+// Woning Alerts. Entry point for GitHub Actions (or any machine with Node 23.6+):
 //   node src/main.ts [run|test-alarm|test-normal]
 // State is kept in state.json next to this repo's root; the workflow commits it.
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { fetchListings, OVERVIEW_URL, type Listing } from "./scrape.ts";
-import { diff, isHome, matchesAlarm, type State } from "./diff.ts";
+import { diff, type State } from "./diff.ts";
 import { notifyListing, publish, type NotifyConfig } from "./notify.ts";
+import { getSources, type Source } from "./sources.ts";
 
 const STATE_FILE = new URL("../state.json", import.meta.url);
 const DAY_MS = 24 * 3600 * 1000;
 
-interface StateFile {
-  listings: State | null;
+interface SourceState {
+  listings: State | null; // null = never checked yet
   lastWarning?: number;
+}
+
+interface StateFile {
+  sources: Record<string, SourceState>;
   // Updated once a day so the repo has activity; GitHub disables scheduled
   // workflows in repos without activity for 60 days.
   heartbeat?: string;
@@ -24,38 +28,41 @@ function env(name: string, required = true): string {
 }
 
 function loadState(): StateFile {
-  if (!existsSync(STATE_FILE)) return { listings: null };
-  return JSON.parse(readFileSync(STATE_FILE, "utf8")) as StateFile;
+  if (!existsSync(STATE_FILE)) return { sources: {} };
+  const raw = JSON.parse(readFileSync(STATE_FILE, "utf8"));
+  if (raw.sources) return raw as StateFile;
+  // Old format (only Hefwonen): { listings, lastWarning, heartbeat }.
+  return {
+    sources: { hefwonen: { listings: raw.listings ?? null, lastWarning: raw.lastWarning } },
+    heartbeat: raw.heartbeat,
+  };
 }
 
 function saveState(s: StateFile): void {
   writeFileSync(STATE_FILE, JSON.stringify(s, null, 2) + "\n");
 }
 
-async function run(cfg: NotifyConfig, file: StateFile, now: number): Promise<void> {
-  const homes: Listing[] = (await fetchListings()).filter(isHome);
+async function checkSource(cfg: NotifyConfig, src: Source, st: SourceState, now: number): Promise<void> {
+  const all = await src.fetch();
+  // Every site always lists something (also garages etc.), so 0 means a broken scraper.
+  if (all.length === 0) throw new Error("0 aanbiedingen gevonden (site down of layout veranderd?)");
+  const homes = all.filter(src.relevant);
 
-  if (!file.listings) {
-    file.listings = diff({}, homes, now).state;
-    console.log(`Eerste run: ${homes.length} woningen opgeslagen, geen meldingen.`);
+  if (!st.listings) {
+    st.listings = diff({}, homes, now).state;
+    console.log(`[${src.name}] Eerste run: ${homes.length} woningen opgeslagen, geen meldingen.`);
     return;
   }
 
-  if (homes.length === 0 && Object.values(file.listings).some((e) => e.goneAt === undefined)) {
-    throw new Error("0 woningen gevonden terwijl er eerder wel woningen waren (site down of layout veranderd?)");
-  }
-
-  const { added, state, changed } = diff(file.listings, homes, now);
-  const prefixes = (env("POSTCODE_ALARM", false) || "3085").split(",").map((s) => s.trim()).filter(Boolean);
-
+  const { added, state, changed } = diff(st.listings, homes, now);
   for (const l of added) {
-    const urgent = matchesAlarm(l, prefixes);
-    await notifyListing(cfg, l, urgent);
-    console.log(`Nieuw: ${l.title} (${l.postcode})${urgent ? " -> ALARM" : ""}`);
+    const urgent = src.urgent(l);
+    await notifyListing(cfg, src.name, l, urgent);
+    console.log(`[${src.name}] Nieuw: ${l.title} (${l.postcode || l.city})${urgent ? " -> ALARM" : ""}`);
   }
   // Only update after notifying, so a failed notification is retried next run.
-  if (changed) file.listings = state;
-  console.log(`${homes.length} woningen, ${added.length} nieuw.`);
+  if (changed) st.listings = state;
+  console.log(`[${src.name}] ${all.length} aanbiedingen, ${homes.length} relevant, ${added.length} nieuw.`);
 }
 
 async function main(): Promise<void> {
@@ -67,42 +74,47 @@ async function main(): Promise<void> {
 
   if (mode === "test-alarm") {
     await publish(cfg, {
-      title: "🚨 TEST 3085: dit is een testalarm",
-      message: "Als je dit hoort/ziet werkt het dringende alarm.",
+      title: "🚨 TEST: dit is een testalarm",
+      message: "Als je dit hoort/ziet werkt het dringende alarm van Woning Alerts.",
       priority: 5,
       tags: ["rotating_light"],
-      click: OVERVIEW_URL,
     });
     return console.log("Testalarm verstuurd");
   }
   if (mode === "test-normal") {
     await publish(cfg, {
       title: "Test: nieuwe woning",
-      message: "Dit is een gewone testmelding (zonder mail).",
+      message: "Dit is een gewone testmelding van Woning Alerts.",
       priority: 3,
       tags: ["house"],
-      click: OVERVIEW_URL,
     });
     return console.log("Testmelding verstuurd");
   }
 
   const now = Date.now();
   const file = loadState();
-  try {
-    await run(cfg, file, now);
-  } catch (err) {
-    console.error(err);
-    if (now - (file.lastWarning ?? 0) >= DAY_MS) {
-      file.lastWarning = now;
-      await publish(cfg, {
-        title: "⚠️ Hefwonen-monitor heeft een probleem",
-        message: String(err instanceof Error ? err.message : err),
-        priority: 3,
-        tags: ["warning"],
-      }).catch((e) => console.error("Waarschuwing versturen mislukt:", e));
+
+  // Sources are independent: one broken site must not block the others.
+  for (const src of getSources()) {
+    const st = (file.sources[src.id] ??= { listings: null });
+    try {
+      await checkSource(cfg, src, st, now);
+    } catch (err) {
+      console.error(`[${src.name}]`, err);
+      process.exitCode = 1;
+      if (now - (st.lastWarning ?? 0) >= DAY_MS) {
+        st.lastWarning = now;
+        await publish(cfg, {
+          title: `⚠️ Woning Alerts: probleem met ${src.name}`,
+          message: String(err instanceof Error ? err.message : err),
+          priority: 3,
+          tags: ["warning"],
+          click: src.url,
+        }).catch((e) => console.error("Waarschuwing versturen mislukt:", e));
+      }
     }
-    process.exitCode = 1;
   }
+
   file.heartbeat = new Date(now).toISOString().slice(0, 10);
   saveState(file);
 }

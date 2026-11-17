@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { diff, PRUNE_MS, REAPPEAR_MS } from "../src/diff.ts";
-import type { Listing } from "../src/scrape.ts";
+import type { Listing } from "../src/listing.ts";
 
 const L = (slug: string): Listing => ({
   slug, title: slug, postcode: "3085 AB", city: "Rotterdam", type: "huis", subtype: "",
