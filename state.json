@@ -60,10 +60,6 @@
       "title": "Lier 1",
       "firstSeen": 1794914752522
     },
-    "tarbotstraat-56": {
-      "title": "Tarbotstraat 56",
-      "firstSeen": 1794779068092
-    },
     "susannadijk-107": {
       "title": "Susannadijk 107",
       "firstSeen": 1794779068092
@@ -79,6 +75,11 @@
     "willebrordusstraat-95-d": {
       "title": "Willebrordusstraat 95 D",
       "firstSeen": 1794860578240
+    },
+    "tarbotstraat-56": {
+      "title": "Tarbotstraat 56",
+      "firstSeen": 1794779068092,
+      "goneAt": 1794931868994
     },
     "huigendijk-3": {
       "title": "Huigendijk 3",
