@@ -73,13 +73,24 @@ async function main(): Promise<void> {
   };
 
   if (mode === "test-alarm") {
-    await publish(cfg, {
-      title: "🚨 TEST: dit is een testalarm",
-      message: "Als je dit hoort/ziet werkt het dringende alarm van Woning Alerts.",
-      priority: 5,
-      tags: ["rotating_light"],
-    });
-    return console.log("Testalarm verstuurd");
+    // One alarm per source, through the same code path as a real new listing.
+    for (const src of getSources()) {
+      await notifyListing(cfg, src.name, {
+        slug: "test",
+        title: "TEST (geen echte woning)",
+        postcode: src.id === "hefwonen" ? "3085 AA" : "",
+        city: src.id === "hefwonen" ? "Rotterdam" : "Barendrecht",
+        type: "",
+        subtype: "",
+        status: "Testalarm",
+        rooms: "3",
+        area: "75 m²",
+        price: "€ 1.000",
+        url: src.url,
+      }, true);
+      console.log(`Testalarm ${src.name} verstuurd`);
+    }
+    return;
   }
   if (mode === "test-normal") {
     await publish(cfg, {
