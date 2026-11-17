@@ -24,10 +24,6 @@
       "title": "Laan op Zuid 663",
       "firstSeen": 1794779068092
     },
-    "susannadijk-141": {
-      "title": "Susannadijk 141",
-      "firstSeen": 1794779068092
-    },
     "susannadijk-71": {
       "title": "Susannadijk 71",
       "firstSeen": 1794779068092
@@ -91,6 +87,11 @@
     "willebrordusstraat-95-d": {
       "title": "Willebrordusstraat 95 D",
       "firstSeen": 1794860578240
+    },
+    "susannadijk-141": {
+      "title": "Susannadijk 141",
+      "firstSeen": 1794779068092,
+      "goneAt": 1794911790500
     }
   },
   "heartbeat": "2026-11-17"
