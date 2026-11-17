@@ -2,9 +2,8 @@ name: Hefwonen check
 
 on:
   schedule:
-    # Elke 5 min (openbare repo = onbeperkt gratis Actions-minuten).
+    # Reserve-planning. De echte wekker is de Cloudflare Worker in trigger/ (stipt elke 5 min).
     # GitHub start geplande runs soms een paar minuten later dan gepland.
-    # GitHub start geplande runs in de praktijk vaak een paar minuten later.
     - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
@@ -31,6 +30,7 @@ jobs:
         with:
           node-version: 24
       - name: Check huuraanbod
+        id: check
         run: node src/main.ts "${{ inputs.mode || 'run' }}"
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
@@ -44,3 +44,15 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "state: update"
           git pull --rebase -q && git push -q
+      - name: Hartslag naar Healthchecks.io
+        # Alleen bij echte checks (niet bij test-alarm/test-normal) en alleen als de link is ingesteld.
+        if: always() && (inputs.mode || 'run') == 'run'
+        env:
+          HC_PING_URL: ${{ secrets.HC_PING_URL }}
+        run: |
+          [ -z "$HC_PING_URL" ] && { echo "HC_PING_URL niet ingesteld, overgeslagen"; exit 0; }
+          if ["${{ steps.check.outcome }}" = "success" ]; then
+            curl -fsS -m 10 --retry 3 -o /dev/null "$HC_PING_URL"
+          else
+            curl -fsS -m 10 --retry 3 -o /dev/null "$HC_PING_URL/fail"
+          fi
