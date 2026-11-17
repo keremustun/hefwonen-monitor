@@ -4,14 +4,6 @@
       "title": "Zwaardvisstraat 22",
       "firstSeen": 1794779068092
     },
-    "huigendijk-3": {
-      "title": "Huigendijk 3",
-      "firstSeen": 1794779068092
-    },
-    "burgemeester-brokxlaan-2064": {
-      "title": "Burgemeester Brokxlaan 2064",
-      "firstSeen": 1794779068092
-    },
     "burgemeester-brokxlaan-1960": {
       "title": "Burgemeester Brokxlaan 1960",
       "firstSeen": 1794779068092
@@ -87,6 +79,16 @@
     "willebrordusstraat-95-d": {
       "title": "Willebrordusstraat 95 D",
       "firstSeen": 1794860578240
+    },
+    "huigendijk-3": {
+      "title": "Huigendijk 3",
+      "firstSeen": 1794779068092,
+      "goneAt": 1794913552623
+    },
+    "burgemeester-brokxlaan-2064": {
+      "title": "Burgemeester Brokxlaan 2064",
+      "firstSeen": 1794779068092,
+      "goneAt": 1794913552623
     },
     "susannadijk-141": {
       "title": "Susannadijk 141",
