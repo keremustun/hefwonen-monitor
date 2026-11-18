@@ -12,10 +12,32 @@ const quietHours = () => process.env.NACHTRUST ?? "23:00-07:30";
 
 const STATE_FILE = new URL("../state.json", import.meta.url);
 const DAY_MS = 24 * 3600 * 1000;
+// A site only counts as "down" after this many failed checks in a row
+// (~30 min at one check per 5 min). Single misses happen and are ignored.
+const DOWN_AFTER = 6;
+// Within one check: retry a failed fetch this many times before giving up.
+const RETRIES = 2;
+const RETRY_DELAY_MS = 5000;
 
 interface SourceState {
   listings: State | null; // null = never checked yet
   lastWarning?: number;
+  failStreak?: number; // failed checks in a row
+}
+
+async function fetchWithRetry(src: Source) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      const all = await src.fetch();
+      // Every site always lists something (also garages etc.), so 0 means a broken page.
+      if (all.length === 0) throw new Error("0 aanbiedingen gevonden (site down of layout veranderd?)");
+      return all;
+    } catch (err) {
+      if (attempt >= RETRIES) throw err;
+      console.warn(`[${src.name}] Poging ${attempt + 1} mislukt, opnieuw over ${RETRY_DELAY_MS / 1000}s:`, String(err));
+      await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+    }
+  }
 }
 
 interface StateFile {
@@ -47,9 +69,7 @@ function saveState(s: StateFile): void {
 }
 
 async function checkSource(cfg: NotifyConfig, src: Source, st: SourceState, now: number): Promise<void> {
-  const all = await src.fetch();
-  // Every site always lists something (also garages etc.), so 0 means a broken scraper.
-  if (all.length === 0) throw new Error("0 aanbiedingen gevonden (site down of layout veranderd?)");
+  const all = await fetchWithRetry(src);
   const homes = all.filter(src.relevant);
 
   if (!st.listings) {
@@ -118,14 +138,22 @@ async function main(): Promise<void> {
     const st = (file.sources[src.id] ??= { listings: null });
     try {
       await checkSource(cfg, src, st, now);
+      if (st.failStreak) console.log(`[${src.name}] Weer in orde na ${st.failStreak} mislukte check(s).`);
+      delete st.failStreak;
     } catch (err) {
-      console.error(`[${src.name}]`, err);
-      process.exitCode = 1;
+      const streak = (st.failStreak = (st.failStreak ?? 0) + 1);
+      if (streak < DOWN_AFTER) {
+        // Probably a one-off miss: log it, but keep the run green (no Healthchecks/ntfy alert).
+        console.warn(`[${src.name}] Check mislukt (${streak}/${DOWN_AFTER} op rij, nog geen alarm):`, err);
+        continue;
+      }
+      console.error(`[${src.name}] ${streak} checks op rij mislukt:`, err);
+      process.exitCode = 1; // makes the workflow fail -> Healthchecks.io marks it down
       if (now - (st.lastWarning ?? 0) >= DAY_MS) {
         st.lastWarning = now;
         await publish(cfg, {
           title: `⚠️ Woning Alerts: probleem met ${src.name}`,
-          message: String(err instanceof Error ? err.message : err),
+          message: `Al ${streak} checks op rij (±${streak * 5} min) mislukt: ${err instanceof Error ? err.message : err}`,
           priority: 3,
           tags: ["warning"],
           click: src.url,

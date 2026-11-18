@@ -74,5 +74,12 @@ export async function fetchVerwelius(): Promise<Listing[]> {
     },
   });
   if (!res.ok) throw new Error(`Verwelius gaf HTTP ${res.status}`);
-  return parseVerwelius(await res.text());
+  const html = await res.text();
+  const listings = parseVerwelius(html);
+  if (listings.length === 0) {
+    // The site sometimes returns an empty page; log what it was, for diagnosis.
+    const title = text(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]);
+    throw new Error(`0 aanbiedingen op Verwelius (pagina ${html.length} tekens, titel "${title}")`);
+  }
+  return listings;
 }

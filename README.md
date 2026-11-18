@@ -11,8 +11,9 @@ Het draait gratis op **GitHub Actions** in een openbare repo (onbeperkt gratis),
 - **Nachtrust:** tussen 23:00 en 07:30 (Nederlandse tijd) wordt een alarm een gewone melding, zodat je niet gewekt wordt
 - Meldingen komen in de **ntfy**-app (topic staat in GitHub Secret `NTFY_TOPIC`)
 - Garages, parkeerplaatsen en bedrijfsruimtes worden genegeerd
-- Als een site stuk is of de layout verandert, krijg je per site maximaal 1× per dag een ⚠️-melding.
-  Een kapotte site houdt de andere niet tegen.
+- Losse missers worden genegeerd: bij een fout probeert de app het meteen nog 2× opnieuw, en pas als een site
+  **6 checks op rij (±30 min)** mislukt, telt hij als down. Dan faalt de run (Healthchecks.io meldt down) en krijg je
+  per site maximaal 1× per dag een ⚠️-melding. Een kapotte site houdt de andere niet tegen.
 
 ## Hoe het werkt
 - `.github/workflows/check.yml` draait `node src/main.ts` volgens de planning.
