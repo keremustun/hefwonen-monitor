@@ -22,10 +22,6 @@
           "title": "Susannadijk 71",
           "firstSeen": 1794779068092
         },
-        "briggemandreef-59": {
-          "title": "Briggemandreef 59",
-          "firstSeen": 1794779068092
-        },
         "jan-evertsenplaats-155": {
           "title": "Jan Evertsenplaats 155",
           "firstSeen": 1794779068092
@@ -82,6 +78,11 @@
           "title": "George Gershwinstraat 20",
           "firstSeen": 1794942352572
         },
+        "briggemandreef-59": {
+          "title": "Briggemandreef 59",
+          "firstSeen": 1794779068092,
+          "goneAt": 1795014353294
+        },
         "willebrordusstraat-111-b": {
           "title": "Willebrordusstraat 111 B",
           "firstSeen": 1794942352572,
@@ -120,8 +121,7 @@
           "firstSeen": 1794937284333
         }
       },
-      "lastWarning": 1794947763211,
-      "failStreak": 2
+      "lastWarning": 1794947763211
     }
   },
   "heartbeat": "2026-11-18"
