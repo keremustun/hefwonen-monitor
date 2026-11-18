@@ -8,6 +8,7 @@ Checkt elke ~5 minuten deze huursites op nieuwe woningen:
 | [Verwelius](https://huurportaal.verwelius.nl/aanbod-huurportaal) | Alleen woningen in **Barendrecht**, en die zijn meteen een **dringend alarm** |
 Het draait gratis op **GitHub Actions** in een openbare repo (onbeperkt gratis), dus je pc hoeft niet aan.
 
+- **Nachtrust:** tussen 23:00 en 07:30 (Nederlandse tijd) wordt een alarm een gewone melding, zodat je niet gewekt wordt
 - Meldingen komen in de **ntfy**-app (topic staat in GitHub Secret `NTFY_TOPIC`)
 - Garages, parkeerplaatsen en bedrijfsruimtes worden genegeerd
 - Als een site stuk is of de layout verandert, krijg je per site maximaal 1× per dag een ⚠️-melding.
@@ -23,6 +24,7 @@ Het draait gratis op **GitHub Actions** in een openbare repo (onbeperkt gratis),
 
 ## Dingen aanpassen
 - **Alarm-postcodes Hefwonen:** `POSTCODE_ALARM` in `.github/workflows/check.yml` (meerdere met komma's, bijv. `"3085,3086"`).
+- **Nachtrust:** `NACHTRUST` in `.github/workflows/check.yml` (bijv. `"22:30-08:00"`, of `""` voor altijd alarm).
 - **Plaatsen Verwelius:** `VERWELIUS_PLAATSEN` in hetzelfde bestand (bijv. `"Barendrecht,Ridderkerk"`).
 - **Nieuwe site toevoegen:** schrijf een bestand zoals `src/verwelius.ts` en zet het in `src/sources.ts`.
   De eerste run van een nieuwe site slaat alleen op wat er al staat, zonder meldingen.

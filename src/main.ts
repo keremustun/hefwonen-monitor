@@ -5,6 +5,10 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { diff, type State } from "./diff.ts";
 import { notifyListing, publish, type NotifyConfig } from "./notify.ts";
 import { getSources, type Source } from "./sources.ts";
+import { isQuiet } from "./quiet.ts";
+
+// No alarms (only normal notifications) in this window, Dutch time. "" = always alarm.
+const quietHours = () => process.env.NACHTRUST ?? "23:00-07:30";
 
 const STATE_FILE = new URL("../state.json", import.meta.url);
 const DAY_MS = 24 * 3600 * 1000;
@@ -55,10 +59,14 @@ async function checkSource(cfg: NotifyConfig, src: Source, st: SourceState, now:
   }
 
   const { added, state, changed } = diff(st.listings, homes, now);
+  const quiet = isQuiet(new Date(now), quietHours());
   for (const l of added) {
-    const urgent = src.urgent(l);
+    // At night an alarm becomes a normal notification (no priority 5).
+    const wantsAlarm = src.urgent(l);
+    const urgent = wantsAlarm && !quiet;
     await notifyListing(cfg, src.name, l, urgent);
-    console.log(`[${src.name}] Nieuw: ${l.title} (${l.postcode || l.city})${urgent ? " -> ALARM" : ""}`);
+    const tag = urgent ? " -> ALARM" : wantsAlarm ? " -> melding (nachtrust, geen alarm)" : "";
+    console.log(`[${src.name}] Nieuw: ${l.title} (${l.postcode || l.city})${tag}`);
   }
   // Only update after notifying, so a failed notification is retried next run.
   if (changed) st.listings = state;

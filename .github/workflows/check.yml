@@ -36,6 +36,7 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           POSTCODE_ALARM: "3085"
           VERWELIUS_PLAATSEN: "Barendrecht"
+          NACHTRUST: "23:00-07:30"
       - name: Save state
         if: always()
         run: |
