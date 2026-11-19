@@ -30,10 +30,6 @@
           "title": "Makreelstraat 9",
           "firstSeen": 1794779068092
         },
-        "marlijnstraat-11": {
-          "title": "Marlijnstraat 11",
-          "firstSeen": 1794779068092
-        },
         "schuilenburg-15": {
           "title": "Schuilenburg 15",
           "firstSeen": 1794914752522
@@ -78,6 +74,11 @@
           "title": "George Gershwinstraat 20",
           "firstSeen": 1794942352572
         },
+        "marlijnstraat-11": {
+          "title": "Marlijnstraat 11",
+          "firstSeen": 1794779068092,
+          "goneAt": 1795079452789
+        },
         "briggemandreef-59": {
           "title": "Briggemandreef 59",
           "firstSeen": 1794779068092,
@@ -121,7 +122,8 @@
           "firstSeen": 1794937284333
         }
       },
-      "lastWarning": 1794947763211
+      "lastWarning": 1794947763211,
+      "failStreak": 1
     }
   },
   "heartbeat": "2026-11-19"
